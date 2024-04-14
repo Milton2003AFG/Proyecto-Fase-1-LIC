@@ -29,7 +29,7 @@
   </style>
 
 </head>
-<body style="background-color: #f8f282;">
+<body style="background-color: #fff427;">
   <div class="container">
     <div class="row justify-content-center mt-5">
         <div class="col-md-6">
@@ -47,7 +47,7 @@
                             </div>
                             <div class="mb-3">
                             <label for="inputPin" class="form-label">PIN</label>
-                            <input type="password" class="form-control" id="inputPin" placeholder="Ingresa tu PIN" required>
+                            <input type="password" class="form-control" id="inputPin" placeholder="Ingresa tu PIN (Números)" maxlength="4" pattern="\d{4}" title="Ingresa valores numéricos por favor" required>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
                         </form>
