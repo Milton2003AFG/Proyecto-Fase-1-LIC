@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,9 @@
         /* Estilos personalizados */
         body {
             background-color: #fff427; 
+            background-image: url("img/Background.webp");
+            min-height: 100vh;
+            background-size: cover;
         }
         .container {
             max-width: 600px; 
@@ -34,28 +37,41 @@
             <img src="img/Logo.jpg" alt="Imagen de perfil" style="max-width: 100px; height: auto;">
         </div>
         <h2 class="mb-4">Estado de Cuenta</h2>
-        <div class="actions">
-            <h4>Nombre del dueño de la cuenta: <br> John Doe</h4>
-            <p>Número de cuenta: 123456789</p>
-            <div class="btn-group-vertical">
-                <button type="button" class="btn btn-primary mb-3">Depositar</button>
-                <button type="button" class="btn btn-primary mb-3">Retirar</button>
-                <button type="button" class="btn btn-primary mb-3">Consultar Saldo</button>
-                <button type="button" class="btn btn-primary mb-3">Pagar Servicios</button>
-                <a href="login.html" class="btn btn-danger">Salir de la sesión</a>
-            </div>
+        <div id="userDetails" class="actions">
+            <!-- Aquí se inyectan los detalles del usuario desde el script -->
+        </div>
+        <div class="btn-group-vertical">
+            <button type="button" class="btn btn-primary mb-3" onclick="realizarTransaccion('deposito')">Depositar</button>
+            <button type="button" class="btn btn-primary mb-3" onclick="realizarTransaccion('retiro')">Retirar</button>
+            <button type="button" class="btn btn-primary mb-3" onclick="consultarSaldo()">Consultar Saldo</button>
+            <button type="button" class="btn btn-primary mb-3" onclick="pagarServicios()">Pagar Servicios</button>
+            <!-- Botón para imprimir comprobante en PDF -->
+<!-- Botón para imprimir comprobante en PDF -->
+<button id="btnImprimirComprobante" type="button" class="btn btn-primary mb-3">Imprimir Comprobante</button>
+
+
+            <button type="button" class="btn btn-danger mb-3" onclick="borrarDatos()">Borrar Datos</button>
+            <a href="login.html" class="btn btn-danger">Salir de la sesión</a>
         </div>
     </div>
 
     <!-- Pantalla de historial de transacciones -->
     <div class="container mt-5">
         <h2>Historial de Transacciones</h2>
+        <div id="transacciones"></div>
     </div>
 
     <!-- Pantalla de gráfico -->
     <div class="container mt-5 mb-5">
         <h2>Gráfico de Transacciones</h2>
+        <canvas id="transaccionesChart"></canvas>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
-
